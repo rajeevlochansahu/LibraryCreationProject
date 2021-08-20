@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.rajeev.halodocapp.model.MyData" />
+
+        <variable
+            name="itemClick"
+            type="com.rajeev.halodocapp.ui.MyRecyclerViewAdapter.ItemClickListener" />
+    </data>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:onClick="@{() -> itemClick.onItemClicked(data)}">
+
+            <RelativeLayout
+                android:id="@+id/item_row_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/titleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@{data.title}"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/authorTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@{data.author}"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/titleTV"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+</layout>
